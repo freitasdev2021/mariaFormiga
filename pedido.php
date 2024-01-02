@@ -1,5 +1,5 @@
 <?php
-include"Configs/configs.php";
+include"Configs/Configs.php";
 include"modais/modalMeidia.php";
 if(!isset($_SESSION['step']) || isset($_GET['end']) || isset($_GET['continuar'])){
     $_SESSION['step'] = 1;
