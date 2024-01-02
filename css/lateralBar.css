@@ -1,0 +1,213 @@
+.navegacao a{
+    background:#b04684;
+    color:white;
+}
+
+.ativado{
+    background:white;
+    color:black;
+}
+
+.conteudo{
+    margin:10px;
+}
+
+.conteudo .card{
+    margin:5px;
+}
+
+.impressaoPedidos{
+    display:flex;
+    width:150px;
+    flex-wrap:wrap;
+}
+
+.pedidos h2{
+    font-family: 'chocolate cake', sans-serif;
+    color:white;
+}
+
+.cPdd{
+    margin-top:10px;
+    display:flex;
+    flex-direction:column;
+}
+
+#modalCalendario .modal-body{
+    display:flex;
+    flex-direction:column;
+}
+
+#modalCalendario .cardPdd{
+    width:300px;
+    display:flex;
+    flex-direction:column;
+}
+
+.card-header{
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.stpedido{
+    padding:10px;
+    width:300px;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+/*CORES DOS STATUS DOS PEDIDOS*/
+.bg-rechear{
+    background:blue;
+}
+
+.bg-topoproducao{
+    background:orange;
+}
+
+.bg-etiquetapronta{
+    background:purple;
+}
+
+.bg-recheado{
+    background:yellow;
+}
+
+.bg-atendimento{
+    background:white;
+}
+
+.bg-entregue{
+    background:green;
+}
+
+/**/
+.card-header{
+    border:solid white;
+    border-radius:20px;
+}
+
+.pedidoTotal{
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+    padding:20px;
+}
+
+.valorPedidoTotal strong{
+    float:right;
+    font-size:1.5em;
+}
+
+.conteudo-pedido{
+    display:flex;
+    flex-direction:row;
+    width:100%;
+}
+
+.prod-pedido{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+.prod-pedido img{
+    width:250px;
+    height:250px;
+    border-radius:10px;
+    margin:10px;
+}
+
+.bg-formiga{
+    background:#b04684;
+}
+
+.btn-formiga{
+    background:#b04684;
+    color:white;
+}
+
+.breadCrumbs{
+    width:99%;
+    display:flex;
+    justify-content:center;
+    flex-direction: row;
+}
+
+.breadItem{
+    width:48%;
+    margin:5px;
+}
+
+.text-formiga-1{
+    font-family: 'GOURMET', sans-serif;
+    font-size:1.5em;
+}
+
+.conteudo-principal{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    width:100%;
+    /* background:red; */
+}
+
+.item{
+    width:25%;
+    text-align:center;
+    margin:5px;
+}
+
+.lista-usuarios{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    width:100%;
+    /* background:red; */
+}
+
+.usuario{
+    width:10%;
+    text-align:center;
+    margin:50px;
+}
+
+.item img{
+    border-radius:10px;
+}
+
+.voltaOlimpica{
+    display:flex;
+    justify-content:space-between;
+}
+
+#sidebarToggle{
+    margin-left:-20px;
+}
+
+@media screen and (max-width: 760px) {
+
+    .item{
+        width:100%;
+        text-align:center;
+        margin:5px;
+    }
+
+    .breadItem{
+        width:100%;
+    }
+
+    .breadCrumbs{
+        display:flex;
+        justify-content:center;
+        flex-direction:column;
+    }
+
+    #sidebarToggle{
+        margin:0;
+    }
+
+    .usuario{
+        width:100%;
+        text-align:center;
+        margin:50px;
+    }
+}

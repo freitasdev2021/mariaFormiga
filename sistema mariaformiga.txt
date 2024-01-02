@@ -1,0 +1,31 @@
+Tarefas:
+
+Modificar o Nome selecionar produtos
+Bolo T1,t2,t2,t3,t4,t5 Confeitado
+Observação com caixa de confirmação dos 15%
+Corrigir o peso da base 1 ate 3kg
+Colocar continuação de pedido(inserir mais itens ou finalizar)
+Apos a finalização o pedido ser enviado via whatsapp
+Tampa MDF: 20 Reais (ao devolver a pessoa pega de volta o valor)
+Topo de Bolo: Orçamento do topo sera enviado poelo whatsaap 
+serviço terceirizado confirmado apos realização de entrada do pedido
+na base colocar alerta escolher base 2 ou 3 
+colocar valor aproximado na exibiçao para a produção
+ao clicar na data do dia aparecer um link para pedidos a pronta entrega
+abaixo da tabela 6 podemos colocar enviar bolo personalizado
+no bolo personalizado o cliente irá enviar a foto e ao enviar a foto abrirá um alerta avisando
+que em qual bolo de encaixa
+=======
+na primeira visualização aparecerá tudo por ordem de horário
+pesquisa por nome,telefone
+filtro por dia
+alteração do Acompanhamento do pedido: massa para rechear(Azul),topo produção(Laranja),etiqueta pronta(Roxo),bolo recheado(amarelo),bolo no atendimento(Branco),
+bolo entregue(Verde)
+Colocar Opção de Bloquear a data
+Bloquear modelos de bolos para determinadas datas
+Criar Bloqueios para Tabelas
+Opção de Confirmar entrada
+
+
+
+

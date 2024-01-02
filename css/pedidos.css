@@ -1,0 +1,244 @@
+.main{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    width:100%;
+    align-items:center;
+}
+
+.pedidos{
+    height:600px;
+    overflow-y:scroll;
+}
+
+/* body{
+    background:#F875AA;
+} */
+
+.escolhaBolo{
+    display:flex;
+    align-items:center;
+    flex-direction:column;
+}
+
+#personalizadoBolo{
+    background:white;
+    width:100%;
+    padding:10px;
+}
+
+#personalizadoBolo label{
+    margin-bottom:-98px;
+    margin-left:23px;
+}
+
+.mrformiga-flex-column{
+    display:flex;
+    flex-direction:column;
+}
+
+#imgDoc{
+    border:solid white;
+}
+
+.pedidos{
+    display:flex;
+    flex-direction:row;
+    width:100%;
+    flex-wrap:wrap;
+    justify-content:center;Recheio
+}
+
+#cnfPeso{
+    display:flex;
+    flex-direction:row;
+    justify-content:center;
+    width:100%;
+}
+
+.pedidos img{
+    height:150px;
+    width:150px;
+    margin:5px;
+}
+
+.bt-pedir{
+    width:150px;
+    height:50px;
+    margin:5px;
+}
+
+select[name='hora']{
+    width:90%;
+    margin:10px;
+    padding:15px;
+    border:none;
+}
+select[name='pesoProduto']{
+    width:90%;
+    margin:10px;
+    padding:15px;
+    border:none;
+}
+select[name='recheios']{
+    width:90%;
+    margin:10px;
+    padding:15px;
+    border:none;
+}
+select[name='massaChocolate']{
+    width:90%;
+    margin:10px;
+    padding:15px;
+    border:none;
+}
+
+.bolTorDoc{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+/* .imagemBoloPedido img{
+    width:80px;
+    height:80px;
+} */
+
+#pedidoDoce{
+    line-height:100%;
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+#pedidoDoce button{
+    width:250px;
+}
+
+.cabecalhoPedido{
+    padding:10px;
+    background:#b04684;
+    display:flex;
+    justify-content:center;
+}
+
+.main input{
+    width:90%;
+    margin:10px;
+    padding:15px;
+    border-radius:2px;
+    border:none;
+}
+
+
+.breadCrumbs{
+    background:#b04684;
+    color:white;
+    width:100%;
+    padding:20px;
+    margin-top:-30px;
+}
+
+.breadCrumbs h3{
+    font-family: 'chocolate cake', sans-serif;
+}
+
+.pedidos h1{
+    font-family: 'chocolate cake', sans-serif;
+    color:white;
+}
+
+.main button{
+    background:#b04684;
+    border:none;
+    color:white;
+}
+
+.pedidos{
+    width:90%;
+}
+
+.card{
+    margin:10px;
+}
+
+.footer-preco{
+    padding:3px;
+    color:white;
+    text-align:center;
+    position:fixed;
+    font-size:5px;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    width:100%;
+}
+
+.embalagens{
+    width:100%;
+    display:flex;
+    flex-direction: column;
+    align-items:center;
+    margin-bottom:15px;
+}
+
+.emb{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+#pedidoBolotorta .modal-body{
+    display:flex;
+    align-items:center;
+    flex-direction:column;
+    justify-content:center;
+    width:100%;
+}
+
+/* .pedidos .card{
+    margin:10px;
+} */
+
+img{
+    border-radius:10px;
+}
+
+.partePedido{
+    display:flex;
+    flex-direction:column;
+    width:150px;
+    margin:10px;
+    align-items:center;
+}
+
+select[name='qualTabela']{
+    width:90%;
+    margin:10px;
+    padding:15px;
+    border:none;
+}
+
+.file-campo{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+.recheios{
+    display:flex;
+    flex-direction:column;
+    width:100%;
+}
+
+/* .recheios_opcao{
+    display:flex;
+    flex-direction:column;
+    width:100%;
+} */
+
+.bg-formiga{
+    background:#b04684;
+    color:white;
+}

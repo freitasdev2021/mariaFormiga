@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maria Formiga - Painel de Controle</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+</head>
+<body>
+    <section class="vh-100">
+        <div class="container-fluid h-custom">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-md-9 col-lg-6 col-xl-5">
+                <img src="img/imagemInsta_png.png"
+                class="img-fluid" alt="Sample image" width="50%" height="500px">
+            </div>
+            <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+                <h3 align="center">Bem Vindo!</h3>
+                <hr>
+                <form id="form_acesso">
+                <!-- Email input -->
+                <div class="form-outline mb-4">
+                    <input type="name" name="user" class="form-control form-control-lg" placeholder="Usuário" />
+                </div>
+
+                <!-- Password input -->
+                <div class="form-outline mb-3">
+                    <input type="password" name="senha" class="form-control form-control-lg" placeholder="Senha" />
+                </div>
+
+                <div class="text-center text-lg-start mt-4 pt-2">
+                    <button type="submit" class="btn btn-lg col-sm-12 bt-login">Acessar</button>
+                </div>
+                <br>
+                <span class="error"></span>
+                </form>
+            </div>
+            </div>
+        </div>
+    </section>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/login.js"></script>
+</body>
+</html>
