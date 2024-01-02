@@ -1,7 +1,7 @@
 <?php
 class MRFormiga{
     public static function DB(){
-        return mysqli_connect('localhost','root','','mariaformiga');
+        return mysqli_connect('localhost','root','SwPx3841','mariaformiga');
     }
     //FUNÇÃO QUE TRATA VALORES MONETARIOS NO SISTEMA
     public static function trataValor($valor,$tratamento){
