@@ -344,7 +344,7 @@ if($_SESSION['step'] == 1){
     <title>Pedido</title>
     <!-- Favicon-->
     <link rel="icon" type="image/x-icon" href="img/fricon.ico" />
-    <link href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/themes/base/theme.min.css" integrity="sha512-hbs/7O+vqWZS49DulqH1n2lVtu63t3c3MTAn0oYMINS5aT8eIAbJGDXgLt6IxDHcWyzVTgf9XyzZ9iWyVQ7mCQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="css/libs/styles.css" rel="stylesheet" />
     <link href="css/pedidos.css" rel="stylesheet" />
