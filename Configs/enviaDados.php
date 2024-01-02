@@ -1,5 +1,5 @@
 <?php
-require"Configs.php";
+require"configs.php";
 if(isset($_POST['PMUsuario'])){
     echo Usuarios::setUsuario($_POST);
 }elseif(isset($_POST['NMBase'])){

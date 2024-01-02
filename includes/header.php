@@ -1,5 +1,5 @@
 <?php
-require"./Configs/Configs.php";
+require"./Configs/configs.php";
 if(!isset($_SESSION['login'])){
     header("location:login.html");
 }

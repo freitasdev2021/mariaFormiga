@@ -1,5 +1,5 @@
 <?php
-require"Configs.php";
+require"configs.php";
 if(isset($_POST['ID'])){
     echo Usuarios::delUsuario($_POST);
 }elseif(isset($_POST['IDBase'])){
