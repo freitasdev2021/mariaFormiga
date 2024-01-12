@@ -484,14 +484,14 @@ jQuery(function(){
     })
     //BOTÃO PARA DOCE TRADICIONAL
     if($("input[name=tpdoce]").val() == "Doces Gourmet"){
-      $("input[name=gourmet]").on("keyup",function(){
+      $("select[name=gourmet]").on("change",function(){
         var valorCliente = $(this).val()
         var valorUn = $(this).attr("data-un")/100
         var valorTotal = valorUn * valorCliente
         $("#prTotal").text(trataValor(valorTotal,0))
       })
     }else if($("input[name=tpdoce]").val() == "Doces Tradicionais"){
-      $("input[name=gourmet]").on("keyup",function(){
+      $("select[name=gourmet]").on("change",function(){
         var valorCliente = $(this).val();
         if(valorCliente % 100 == 0 ) {
           var valorUn = $(this).attr("data-un")/100
@@ -505,7 +505,7 @@ jQuery(function(){
         $("#prTotal").text(trataValor(valorTotal,0))
       })
     }else if($("input[name=tpdoce]").val() == "Bombons Tradicionais"){
-      $("input[name=gourmet]").on("keyup",function(){
+      $("select[name=gourmet]").on("change",function(){
         var valorCliente = $(this).val();
         if(valorCliente % 100 == 0 ) {
           var valorUn = $(this).attr("data-un")/100

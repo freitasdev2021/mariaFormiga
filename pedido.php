@@ -167,9 +167,9 @@ if($_SESSION['step'] == 1){
         <div class="col-sm-12">
             <label>massa de chocolate acréscimo de 2,00 reais por kg.</label>
             <select name="massaChocolate" style="border:solid;">
-              <option value="nenhum">Selecione a Massa (Acréscimo 2,00/KG)</option>
-              <option value="Chocolate">Chocolate</option>
-              <option value="Tradicional Massa Branca">Tradicional Massa Branca</option>
+              <option value="nenhum">Selecione a Massa</option>
+              <option value="Chocolate">Massa Chocolate</option>
+              <option value="Tradicional Massa Branca">Massa Branca</option>
             </select>
         </div>
         <br>
@@ -177,7 +177,7 @@ if($_SESSION['step'] == 1){
         if($_SESSION['dadosPedido']['TPBase'] == "BOL"){
         ?>
         <div class="col-sm-12">
-            <label>Recheios (+ R$5 - Não Obrigatório)</label>
+          <label>Recheios</label>
           <select name="recheios">
               <option <?=($rcheio == "nenhum") ? 'selected' : ''?> value="nenhum">Nenhum</option>
               <option <?=($rcheio == "Ninho com chocolate") ? 'selected' : ''?> value="Ninho com chocolate">Ninho com chocolate</option>
@@ -210,7 +210,19 @@ if($_SESSION['step'] == 1){
     <div class="breadCrumbs">
         <div class="col-sm-12">
             <input type="hidden" name="tpdoce" value="<?=$_SESSION['dadosPedido']['bolo']['tpdoce']?>">
-            <input type="number" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="5" data-un="<?=$_SESSION['dadosPedido']['VLBase']?>" name="gourmet" placeholder="Quantidade">
+            <select name="gourmet" data-un="<?=$_SESSION['dadosPedido']['VLBase']?>">
+                <option value="">Quantidade</option>
+                <option value="50">50</option>
+                <option value="100">100</option>
+                <option value="150">150</option>
+                <option value="200">200</option>
+                <option value="250">250</option>
+                <option value="300">300</option>
+                <option value="350">350</option>
+                <option value="400">400</option>
+                <option value="450">450</option>
+                <option value="500">500</option>
+            </select>
         </div>
     </div>
     <?php

@@ -394,6 +394,7 @@
 			date.setMonth(date.getMonth() + months);		  
 			return date;
 		}
+		
 		//alert(today.getMonth() + 1+"-"+today.getFullYear())
 		$("#calendar_first").attr("data-mes",today.getMonth() + 1)
 		$("#calendar_second").attr("data-mes",addMonths(new Date(),1).getMonth()+1)

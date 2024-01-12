@@ -113,6 +113,8 @@ jQuery(function(){
                     class: 'impressaoPedidos'
                 },"</div>")
 
+                console.log(ServicosJSON)
+
                 $.each(ServicosJSON,function(i,v){
                     var arrPedidos = jQuery.parseJSON(v.PedidoJSON)
                     var dataPed = new Date(v.DTEntrega);
@@ -160,13 +162,20 @@ jQuery(function(){
             $(".switch-month").hide()
             //CONSULTA AS DATAS
             $(".calendar_content").find("div").not(".blank,.past-date").each(function(){
+                
                 if($(this).text() < 10){
                     var dayy = "0"+$(this).text()
                 }else{
                     var dayy = $(this).text()
                 }
+                //
+                if($(this).parents(".calendar").attr("data-mes") < 10){
+                    datames = "0"+$(this).parents(".calendar").attr("data-mes");
+                }else{
+                    datames = $(this).parents(".calendar").attr("data-mes");
+                }
                 //console.log($(this).text())
-                var dia = $(this).parents(".calendar").attr("data-ano")+"-"+$(this).parents(".calendar").attr("data-mes")+"-"+dayy
+                var dia = $(this).parents(".calendar").attr("data-ano")+"-"+datames+"-"+dayy
                 $(this).addClass("dia_"+dia+" dta")
                 $.each(rt,function(i,v){
                     if(i == dia){
