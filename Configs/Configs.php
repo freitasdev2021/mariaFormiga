@@ -543,78 +543,96 @@ class Pedidos{
     }
     ////////////////FUNÇÃO QUE GERA OS ITENS PARA OS PEDIDOS
     public static function getItens($data,$base){
-        ob_start();
-        $accordions = 0;
-        // echo "<h2 align='center'>Clique no Item Escolhido para Continuar o Pedido</h2>";
-        
-        $oquetemarray = array();
-        foreach(Produtos::getItensPedido($base) as $b){
-            // array_push($oquetemarray,$b);
-            // $accordions = $accordions+1;
-            // switch($b['TPBase']){
-            //     case "BOL":
-            //         if($b['STChantilly'] == 1){
-            //             $chave = "chantilly";
+            ob_start();
+            $accordions = 0;
+            // echo "<h2 align='center'>Clique no Item Escolhido para Continuar o Pedido</h2>";
+            
+            $oquetemarray = array();
+            foreach(Produtos::getItensPedido($base) as $b){
+                // array_push($oquetemarray,$b);
+                // $accordions = $accordions+1;
+                // switch($b['TPBase']){
+                //     case "BOL":
+                //         if($b['STChantilly'] == 1){
+                //             $chave = "chantilly";
+                //         }else{
+                //             $chave = "acetato";
+                //         }
+                //     break;
+                //     case "DOC":
+                //         $chave = "doces";
+                //     break;
+                //     case "TOR":
+                //         $chave = "torta";
+                //     break;
+                // }
+            //CONFERE OS HORAROS
+            //echo $chave;
+            // foreach(SELF::$horarios[$chave] as $key => $val){
+            //     //CONFERE A QUANTIDADE DE PEDIDOS NAQUELE DIA E NAQUELA HORA
+            //     $quantidadePedidos = Pedidos::getHorarioPedido($data,$data." ".$key,$b['TPBase']);
+            //     if(isset($quantidadePedidos)){
+            //         if(in_array($b['TPBase'],array('BOL','TOR'))){
+            //             $qt = $quantidadePedidos['Pedidos'];
             //         }else{
-            //             $chave = "acetato";
+            //             $qt = $quantidadePedidos['PedidosQT'];
             //         }
-            //     break;
-            //     case "DOC":
-            //         $chave = "doces";
-            //     break;
-            //     case "TOR":
-            //         $chave = "torta";
-            //     break;
+            //         // print_r($quantidadePedidos);
+            //     }else{
+            //         $qt = 0;
+            //     }
+            //     //echo $qt;
+            //     if($qt >= $val ){
+            //         unset(SELF::$horarios[$chave][$key]);
+            //     }
+            //     //print_r($quantidadePedidos);
             // }
-        //CONFERE OS HORAROS
-        //echo $chave;
-        // foreach(SELF::$horarios[$chave] as $key => $val){
-        //     //CONFERE A QUANTIDADE DE PEDIDOS NAQUELE DIA E NAQUELA HORA
-        //     $quantidadePedidos = Pedidos::getHorarioPedido($data,$data." ".$key,$b['TPBase']);
-        //     if(isset($quantidadePedidos)){
-        //         if(in_array($b['TPBase'],array('BOL','TOR'))){
-        //             $qt = $quantidadePedidos['Pedidos'];
-        //         }else{
-        //             $qt = $quantidadePedidos['PedidosQT'];
-        //         }
-        //         // print_r($quantidadePedidos);
-        //     }else{
-        //         $qt = 0;
-        //     }
-        //     //echo $qt;
-        //     if($qt >= $val ){
-        //         unset(SELF::$horarios[$chave][$key]);
-        //     }
-        //     //print_r($quantidadePedidos);
-        // }
-        // echo "<pre>";
-        // print_r(SELF::$horarios[$chave]);
-        // echo "</pre>";
-        //print_r($diasCheios);
-        //AQUI VAI OP HTML
-        if(in_array($b['TPBase'],array("BOL","DOC","TOR"))){
+            // echo "<pre>";
+            // print_r(SELF::$horarios[$chave]);
+            // echo "</pre>";
+            //print_r($diasCheios);
+            //AQUI VAI OP HTML
             if($b['TPUn'] == "UN"){
                 $tp = "CEN";
             }else{
                 $tp = $b['TPUn'];
             }
-        ?>
-            <div class="bolTorDoc">
-                <img src="<?=$b['IMGProduto']?>" 
-                data-chantilly='<?=$b['STChantilly']?>' 
-                data-tpbase="<?=$b['TPBase']?>"
-                data-valor="<?=$b['VLBase']?>"
-                data-tpdoce="<?=$b['TPDoce']?>"
-                data-psembalagem="<?=$b['PSEmb']?>"
-                style="cursor:pointer;" class="fotoProduto" data-id='<?=$b['IDProduto']?>' data-categoria='<?=$b['IDCategoria']?>' data-nome='<?=$b['NMProduto']?>'>
-                <button class="btn btn-formiga bt-pedir">Pedir (<?=MRFormiga::trataValor($b['VLBase'],0)?>/<?=$tp?>) </button>
-            </div>
-        <?php
+            if(in_array($b['TPBase'],array("BOL","TOR"))){
+            ?>
+                <div class="bolTorDoc">
+                    <img src="<?=$b['IMGProduto']?>" 
+                    data-chantilly='<?=$b['STChantilly']?>' 
+                    data-tpbase="<?=$b['TPBase']?>"
+                    data-valor="<?=$b['VLBase']?>"
+                    data-tpdoce="<?=$b['TPDoce']?>"
+                    data-psembalagem="<?=$b['PSEmb']?>"
+                    style="cursor:pointer;" class="fotoProduto" data-id='<?=$b['IDProduto']?>' data-categoria='<?=$b['IDCategoria']?>' data-nome='<?=$b['NMProduto']?>'>
+                    <button class="btn btn-formiga bt-pedir">Pedir (<?=MRFormiga::trataValor($b['VLBase'],0)?>/<?=$tp?>) </button>
+                </div>
+            <?php
+                }elseif($b['TPBase'] == 'DOC'){
+            ?>
+                <div class="bolTorDoc">
+                    <div class='checkboxDoces'>
+                        <input type="checkbox" name="doce">
+                    </div>
+                    <img src="<?=$b['IMGProduto']?>" 
+                    data-chantilly='<?=$b['STChantilly']?>' 
+                    data-tpbase="<?=$b['TPBase']?>"
+                    data-valor="<?=$b['VLBase']?>"
+                    data-tpdoce="<?=$b['TPDoce']?>"
+                    data-psembalagem="<?=$b['PSEmb']?>"
+                    style="cursor:pointer;" class="fotoProduto" data-id='<?=$b['IDProduto']?>' data-categoria='<?=$b['IDCategoria']?>' data-nome='<?=$b['NMProduto']?>'>
+                    <div class='checkboxDocesTxt'>
+                        <?=$b['NMProduto']?>
+                    </div>
+                </div>
+            <?php
             }
+            // echo "<pre>";
+            // print_r($oquetemarray);
+            // echo "</pre>";
         }
-        // echo "<pre>";
-        // print_r($oquetemarray);
-        // echo "</pre>";
         $retorno['itens'] = ob_get_clean();
         return json_encode($retorno);
     }

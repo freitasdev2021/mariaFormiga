@@ -46,7 +46,7 @@
     flex-direction:row;
     width:100%;
     flex-wrap:wrap;
-    justify-content:center;Recheio
+    justify-content:center;
 }
 
 #cnfPeso{
@@ -116,6 +116,25 @@ select[name='massaChocolate']{
     width:250px;
 }
 
+.checkboxDocesTxt{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    width:150px;
+}
+
+.checkboxDoces input{
+    position:absolute;
+    margin:5px;
+}
+
+.checkboxDoces{
+    display:flex;
+    width:150px;
+    margin-top:5px;
+}
+
 .cabecalhoPedido{
     padding:10px;
     background:#b04684;
@@ -123,7 +142,15 @@ select[name='massaChocolate']{
     justify-content:center;
 }
 
-.main input{
+.main input[type='text']{
+    width:90%;
+    margin:10px;
+    padding:15px;
+    border-radius:2px;
+    border:none;
+}
+
+.main input[type='name']{
     width:90%;
     margin:10px;
     padding:15px;
