@@ -602,12 +602,11 @@ class Pedidos{
                 <div class="bolTorDoc">
                     <img src="<?=$b['IMGProduto']?>" 
                     data-chantilly='<?=$b['STChantilly']?>' 
-                    data-tpbase="<?=$b['TPBase']?>"
                     data-valor="<?=$b['VLBase']?>"
                     data-tpdoce="<?=$b['TPDoce']?>"
                     data-psembalagem="<?=$b['PSEmb']?>"
                     style="cursor:pointer;" class="fotoProduto" data-id='<?=$b['IDProduto']?>' data-categoria='<?=$b['IDCategoria']?>' data-nome='<?=$b['NMProduto']?>'>
-                    <button class="btn btn-formiga bt-pedir">Pedir (<?=MRFormiga::trataValor($b['VLBase'],0)?>/<?=$tp?>) </button>
+                    <button class="btn btn-formiga bt-pedir" data-tpbase="<?=$b['TPBase']?>">Pedir (<?=MRFormiga::trataValor($b['VLBase'],0)?>/<?=$tp?>) </button>
                 </div>
             <?php
                 }elseif($b['TPBase'] == 'DOC'){
@@ -619,8 +618,6 @@ class Pedidos{
                     <img src="<?=$b['IMGProduto']?>" 
                     data-chantilly='<?=$b['STChantilly']?>' 
                     data-tpbase="<?=$b['TPBase']?>"
-                    data-valor="<?=$b['VLBase']?>"
-                    data-tpdoce="<?=$b['TPDoce']?>"
                     data-psembalagem="<?=$b['PSEmb']?>"
                     style="cursor:pointer;" class="fotoProduto" data-id='<?=$b['IDProduto']?>' data-categoria='<?=$b['IDCategoria']?>' data-nome='<?=$b['NMProduto']?>'>
                     <div class='checkboxDocesTxt'>
@@ -632,6 +629,9 @@ class Pedidos{
             // echo "<pre>";
             // print_r($oquetemarray);
             // echo "</pre>";
+        }
+        if($b['TPBase'] == "DOC"){
+            echo "<div class='pedidoDoceFooter'><button class='btn btn-formiga bt-pedir' data-tpbase=".$b['TPBase']."  data-tpdoce='".$b['TPDoce']."' data-valor=".$b['VLBase'].">Pedir</button></div>";
         }
         $retorno['itens'] = ob_get_clean();
         return json_encode($retorno);
@@ -658,22 +658,36 @@ class Pedidos{
 
         if($step == 1){
             if($dados['TPItem'] != "BOLPER"){
-                $_SESSION['dadosPedido'] = array(
-                    "VLBase" => $dados['VLItem'],
-                    "TPBase" => $dados['TPItem'],
-                    "IDTabela" => $dados['IDTabela'],
-                    "IDProduto" => $dados['IDBolo'],
-                    "DTEntrega" => $dados['DTEntrega'],
-                    "NMCliente" => $dados['NMCliente'],
-                    "NUTelefoneCliente" => $dados['TLCliente'] ,
-                    'bolo' => array(
-                        'nome' => $dados['NMBolo'] ,
-                        'id' => $dados['IDBolo'],
-                        "fotoBolo" => $dados['IMGBolo'],
-                        'precoUn' => $dados['VLItem'],
-                        'tipo' => $dados['TPItem']
-                    )
-                );
+                if($dados['TPItem'] == "DOC"){
+                    $_SESSION['dadosPedido'] = array(
+                        "VLBase" => $dados['VLItem'],
+                        "TPBase" => $dados['TPItem'],
+                        "IDTabela" => $dados['IDTabela'],
+                        "IDProduto" => $dados['IDBolo'],
+                        "DTEntrega" => $dados['DTEntrega'],
+                        "NMCliente" => $dados['NMCliente'],
+                        "NUTelefoneCliente" => $dados['TLCliente'] ,
+                        "TPDoce" => $dados['TPDoce'],
+                        'bolo' => json_decode($dados['doces'],true)
+                    );
+                }else{
+                    $_SESSION['dadosPedido'] = array(
+                        "VLBase" => $dados['VLItem'],
+                        "TPBase" => $dados['TPItem'],
+                        "IDTabela" => $dados['IDTabela'],
+                        "IDProduto" => $dados['IDBolo'],
+                        "DTEntrega" => $dados['DTEntrega'],
+                        "NMCliente" => $dados['NMCliente'],
+                        "NUTelefoneCliente" => $dados['TLCliente'] ,
+                        'bolo' => array(
+                            'nome' => $dados['NMBolo'] ,
+                            'id' => $dados['IDBolo'],
+                            "fotoBolo" => $dados['IMGBolo'],
+                            'precoUn' => $dados['VLItem'],
+                            'tipo' => $dados['TPItem']
+                        )
+                    );
+                }
                 if(isset($dados['TPDoce'])){
                     $_SESSION['dadosPedido']['bolo']['tpdoce'] = $dados['TPDoce'];
                 }

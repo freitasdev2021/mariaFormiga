@@ -206,6 +206,9 @@ if($_SESSION['step'] == 1){
     </div>
     <?php
     }elseif($_SESSION['dadosPedido']['TPBase'] == "DOC"){
+        // echo "<pre>";
+        // print_r($doces);
+        // echo "</pre>";
     ?>
     <div class="breadCrumbs">
         <div class="col-sm-12">
@@ -251,7 +254,7 @@ if($_SESSION['step'] == 1){
         unset($_SESSION['dadosPedido']['embalagem']);
     ?>
     <div id="pedidoDoce">
-        <img src="<?=$_SESSION['dadosPedido']['bolo']['fotoBolo']?>" width="250px" height="250px" id='imgDoc'>
+        
         <br>
         <textarea name="mensagem" cols="30" rows="5" placeholder="Deixe uma Mensagem (Opcional)"></textarea>
         <br>

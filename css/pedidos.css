@@ -125,14 +125,23 @@ select[name='massaChocolate']{
 }
 
 .checkboxDoces input{
-    position:absolute;
+    margin:2px;
+    float:right;
+}
+
+.pedidoDoceFooter{
+    width:100%;
+    bottom:0px;
+}
+
+.pedidoDoceFooter button{
+    width:100%;
     margin:5px;
 }
 
 .checkboxDoces{
     display:flex;
     width:150px;
-    margin-top:5px;
 }
 
 .cabecalhoPedido{

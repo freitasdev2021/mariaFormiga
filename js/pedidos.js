@@ -325,6 +325,7 @@ jQuery(function(){
       // alert(tabela)
       // return false;
       ret = jQuery.parseJSON(retorno)
+      var doces = [];
       if(horasAgora > 12){
           var date1 = new Date();
           var date2 = new Date(data);
@@ -393,21 +394,42 @@ jQuery(function(){
         if($("input[name=step]").val() == 1){
           // alert(dataNova)
           // return false;
-          var ddss = {
-            IMGBolo   : $(this).parents(".bolTorDoc").find("img").attr("src"),
-            NMCliente : $("input[name=nome]").val(),
-            TLCliente : $("input[name=telefone]").val().replace(/[^0-9]+/g,''),
-            DTEntrega : dataNova,
-            IDTabela  : $("select[name=qualTabela]").val(),
-            IDBolo    : $(this).parents(".bolTorDoc").find("img").attr("data-id"),
-            NMBolo    : $(this).parents(".bolTorDoc").find("img").attr("data-nome"),
-            VLItem    : $(this).parents(".bolTorDoc").find("img").attr("data-valor"),
-            TPItem    : $(this).parents(".bolTorDoc").find("img").attr("data-tpbase")
-          }
-          if(ddss.TPItem == "DOC"){
-            ddss.TPDoce = $(this).parents(".bolTorDoc").find("img").attr("data-tpdoce")
+          if($(this).attr("data-tpbase") == "DOC"){
+            $("input[name=doce]:checked").each(function(){
+              doces.push({
+                IMGBolo   : $(this).parents(".bolTorDoc").find("img").attr("src"),
+                IDBolo    : $(this).parents(".bolTorDoc").find("img").attr("data-id"),
+                NMBolo    : $(this).parents(".bolTorDoc").find("img").attr("data-nome"),
+                TPItem    : "DOC"
+              })
+            })
+            var ddss = {
+              NMCliente : $("input[name=nome]").val(),
+              TLCliente : $("input[name=telefone]").val().replace(/[^0-9]+/g,''),
+              DTEntrega : dataNova,
+              IDTabela  : $("select[name=qualTabela]").val(),
+              doces     : JSON.stringify(doces),
+              TPItem    : "DOC",
+              VLItem    : $(this).attr("data-valor"),
+              TPDoce    : $(this).attr("data-tpdoce")
+            }
+          }else{
+            var ddss = {
+              IMGBolo   : $(this).parents(".bolTorDoc").find("img").attr("src"),
+              NMCliente : $("input[name=nome]").val(),
+              TLCliente : $("input[name=telefone]").val().replace(/[^0-9]+/g,''),
+              DTEntrega : dataNova,
+              IDTabela  : $("select[name=qualTabela]").val(),
+              IDBolo    : $(this).parents(".bolTorDoc").find("img").attr("data-id"),
+              NMBolo    : $(this).parents(".bolTorDoc").find("img").attr("data-nome"),
+              VLItem    : $(this).parents(".bolTorDoc").find("img").attr("data-valor"),
+              TPItem    : $(this).attr("data-tpbase"),
+              TPDoce    : $(this).parents(".bolTorDoc").find("img").attr("data-tpdoce")
+            }
           }
           // alert($("input[name=step]").val())
+          // return false
+          // console.log(ddss)
           // return false
           setPedido($("input[name=step]").val(),ddss,"insercao");
         }

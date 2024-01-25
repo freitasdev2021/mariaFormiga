@@ -27,6 +27,9 @@
             <b>Data: </b> <?=MRFormiga::data($dadosPdd['DTEntrega'],'d/m/Y - H:i')?>
           </div>
           <?php
+          echo "<pre>";
+          print_r($dadosPdd);
+          echo "</pre>";
           for($i=0;$i<count($dadosPdd['bolo']);$i++){
             echo "<hr>";
           if($_SESSION['pedido']['bolo'][$i]['tipo'] == "BOL"){
