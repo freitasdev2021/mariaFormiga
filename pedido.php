@@ -13,10 +13,11 @@ if(isset($_GET['step'])){
 //     echo "<script>window.open('https://wa.me/5531983085313?text=Ola','_blank')</script>";
 // }
 
-
-// unset($_SESSION['dadosPedido']);
-// unset($_SESSION['CDPedido']);
-// unset($_SESSION['pedido']);
+if(isset($_GET['end'])){
+    unset($_SESSION['dadosPedido']);
+    unset($_SESSION['CDPedido']);
+    unset($_SESSION['pedido']);
+}
 if(isset($_SESSION['pedido'])){
     include"modais/modalEndPedido.php";
     // echo "<pre>";

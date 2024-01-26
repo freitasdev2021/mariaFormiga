@@ -399,8 +399,7 @@ jQuery(function(){
               doces.push({
                 IMGBolo   : $(this).parents(".bolTorDoc").find("img").attr("src"),
                 IDBolo    : $(this).parents(".bolTorDoc").find("img").attr("data-id"),
-                NMBolo    : $(this).parents(".bolTorDoc").find("img").attr("data-nome"),
-                TPItem    : "DOC"
+                NMBolo    : $(this).parents(".bolTorDoc").find("img").attr("data-nome")
               })
             })
             var ddss = {

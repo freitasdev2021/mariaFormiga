@@ -668,8 +668,10 @@ class Pedidos{
                         "NMCliente" => $dados['NMCliente'],
                         "NUTelefoneCliente" => $dados['TLCliente'] ,
                         "TPDoce" => $dados['TPDoce'],
+                        "tipo" => "DOC",
                         'bolo' => json_decode($dados['doces'],true)
                     );
+                    $_SESSION['dadosPedido']['bolo']['tipo'] = "DOC";
                 }else{
                     $_SESSION['dadosPedido'] = array(
                         "VLBase" => $dados['VLItem'],
