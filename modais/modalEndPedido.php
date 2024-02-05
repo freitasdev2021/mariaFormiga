@@ -30,11 +30,11 @@
           // echo "<pre>";
           // print_r($dadosPdd);
           // echo "</pre>";
-          foreach($dadosPdd['bolo'] as $dp){
-            echo "<pre>";
-            print_r($dp);
-            echo "</pre>";
-          }
+          // foreach($dadosPdd['bolo'] as $dp){
+          //   echo "<pre>";
+          //   print_r($dp);
+          //   echo "</pre>";
+          // }
           for($i=0;$i<count($dadosPdd['bolo']);$i++){
             echo "<hr>";
           if($_SESSION['pedido']['bolo'][$i]['tipo'] == "BOL"){
@@ -55,16 +55,20 @@
             </div>
           <?php
           }elseif($_SESSION['pedido']['bolo'][$i]['tipo'] == "DOC"){
+            $tipoDoces = array();
+            for($d=0;$d<count($dadosPdd['bolo'][$i]['doces']);$d++){
+              array_push($tipoDoces,$dadosPdd['bolo'][$i]['doces'][$d]['NMBolo']);
+            }
           ?>
           <div class="pdd">
               <div>
-                  <strong style="font-size:1.5em;"><?=$_SESSION['pedido']['bolo'][$i]['nome']?></strong>
+                  <strong style="font-size:1.5em;"><?=$_SESSION['pedido']['bolo'][$i]['tpdoce']?></strong>
               </div>
               <div>
                   <b>Valor:</b> <?=MRFormiga::trataValor($_SESSION['pedido']['bolo'][$i]['preco'],0)?>
               </div>
               <div>
-                  <b>Tipo:</b> <?=$_SESSION['pedido']['bolo'][$i]['tpdoce']?>
+                  <b>Tipo(s):</b> <?=implode(", ",$tipoDoces)?> 
               </div>
           </div>
           <?php

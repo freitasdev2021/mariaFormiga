@@ -57,7 +57,7 @@ include"includes/header.php";
                             }
                             $pedido = json_decode($p['PedidoJSON'],true);
                             // echo "<pre>";
-                            // print_r($p);
+                            // print_r($pedido);
                             // echo "</pre>";
                             switch($p['STPedido']){
                                 case 0:
@@ -115,22 +115,42 @@ include"includes/header.php";
                                     foreach($pedido as $pd){
                                     ?>
                                     <div class="prod-pedido">
-                                        <h3>Pedido</h3>
-                                        <img src="<?=$pd['fotoBolo']?>">
-                                        <strong><?=$pd['nome']?></strong>
-                                        <strong>Quantidade: <?=$pd['peso']?></strong>
-                                        <strong><?="Valor: ".MRFormiga::trataValor($pd['preco'],0)?></strong>
                                         <?php
-                                        if(!empty($pd['NMRecheio'])){
+                                        if($pd['tipo'] == 'BOL' || $pd['tipo'] == "TOR"){
                                         ?>
-                                        <strong>Recheio: <?=$pd['NMRecheio']?></strong>
+                                        <div class="carrinho">
+                                            <img src="<?=$pd['fotoBolo']?>">
+                                            <strong><?=$pd['nome']?></strong>
+                                            <strong>Quantidade: <?=$pd['peso']?></strong>
+                                            <strong><?="Valor: ".MRFormiga::trataValor($pd['preco'],0)?></strong>
+                                            <?php
+                                            if(!empty($pd['NMRecheio'])){
+                                            ?>
+                                            <strong>Recheio: <?=$pd['NMRecheio']?></strong>
+                                            <?php
+                                            }
+                                            if(isset($pd['embalagem'])){
+                                            $embalagem = $pd['embalagem'];
+                                            ?>
+                                            <strong>Embalagem: <?=$embalagem['nome']?></strong>
+                                            
                                         <?php
-                                        }
-                                        if(isset($pd['embalagem'])){
-                                        $embalagem = $pd['embalagem'];
+                                            }
+                                            echo "</div>";
+                                        }elseif($pd['tipo'] == 'DOC'){
+                                            for($i=0;$i<count($pd['doces']);$i++){
                                         ?>
-                                        <strong>Embalagem: <?=$embalagem['nome']?></strong>
+                                        <div class="carrinho">
+                                            <img src='<?=$pd['doces'][$i]['IMGBolo']?>'>
+                                            <strong><?=$pd['doces'][$i]['NMBolo']?></strong>
+                                        </div>
                                         <?php
+                                            }
+                                            echo "<div class='footerDoce'>";
+                                                echo "<strong> Valor: ".MRFormiga::trataValor($pd['preco'],0)."</strong>";
+                                                echo "<br>";
+                                                echo "<strong> Quantidade: ".$pd['peso']."</strong>";
+                                            echo "</div>";
                                         }
                                         ?>
                                     </div>

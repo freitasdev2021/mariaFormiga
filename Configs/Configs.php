@@ -634,7 +634,7 @@ class Pedidos{
             echo "<div class='pedidoDoceFooter'><button class='btn btn-formiga bt-pedir' data-tpbase=".$b['TPBase']."  data-tpdoce='".$b['TPDoce']."' data-valor=".$b['VLBase'].">Pedir</button></div>";
         }
         $retorno['itens'] = ob_get_clean();
-        return json_encode($retorno);
+        return json_encode($retorno,JSON_UNESCAPED_UNICODE);
     }
     //GERADOR DE STRING OBRIGATORIOS
     public static function getCodigoPedido($size){
@@ -668,9 +668,9 @@ class Pedidos{
                         "NMCliente" => $dados['NMCliente'],
                         "NUTelefoneCliente" => $dados['TLCliente'] ,
                         "TPDoce" => $dados['TPDoce'],
-                        "tipo" => "DOC",
-                        'bolo' => json_decode($dados['doces'],true)
+                        "tipo" => "DOC"
                     );
+                    $_SESSION['dadosPedido']['bolo']['doces'] = json_decode($dados['doces'],true);
                     $_SESSION['dadosPedido']['bolo']['tipo'] = "DOC";
                 }else{
                     $_SESSION['dadosPedido'] = array(
@@ -776,7 +776,7 @@ class Pedidos{
     }
     //MÉTODO QUE SALVA O PEDIDO
     public static function setPedidoBD($dados){
-        $pedidosJson = json_encode($dados['bolo']);
+        $pedidosJson = json_encode($dados['bolo'],JSON_UNESCAPED_UNICODE);
         $SQL = "INSERT INTO pedidos (NMCliente,NUTelefoneCliente,DTEntrega,PedidoJSON,VLPedido) VALUES ('".$dados['NMCliente']."','".$dados['NUTelefoneCliente']."','".$dados['DTEntrega']."','".$pedidosJson."','".$dados['VLTotal']."')";
         return mysqli_query(MRFormiga::DB(),$SQL);
     }

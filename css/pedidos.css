@@ -116,6 +116,13 @@ select[name='massaChocolate']{
     width:250px;
 }
 
+.pdDoce{
+    display:flex;
+    width:100%;
+    justify-content:center;
+    align-items:center;
+}
+
 .checkboxDocesTxt{
     display:flex;
     justify-content:center;

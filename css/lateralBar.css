@@ -105,8 +105,22 @@
 
 .prod-pedido{
     display:flex;
-    flex-direction:column;
+    flex-direction:row;
     align-items:center;
+}
+
+.footerDoce{
+    width:100%;
+    margin-top:150px;
+    margin-left:10px;
+    position:absolute;
+}
+
+.carrinho{
+    display:flex;
+    flex-direction:column;
+    text-align:center;
+    height:500px;
 }
 
 .prod-pedido img{

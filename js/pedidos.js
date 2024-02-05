@@ -163,7 +163,7 @@ jQuery(function(){
   $("#finalizarPedidoModal").on("show.bs.modal",function(){
     //alert($("#quantidadePdds",this).find("b").length)
     //$("<p>"+$("input[name=gourmet]").val()+"</p>").insertAfter("#quantidadePdds",this).find("b")
-    $("#quantidadePdds",this).append($("input[name=gourmet]").val())
+    $("#quantidadePdds",this).append($("select[name=gourmet]").val())
   })
 
   $(".bt-concluir-pedido").on("click",function(){
@@ -194,12 +194,12 @@ jQuery(function(){
   })
   //BT CONTINUAR DOCE
   $(".bt-continuar-doce").on("click",function(){
-    if($("input[name=gourmet]").val() == ""){
+    if($("select[name=gourmet]").val() == ""){
       alert("Primeiro Informe a Quantidade!");
     }else{
       var ddss = {
         precoUn    : $(this).attr("data-un"),
-        pesoBolo   : $("input[name=gourmet]").val(),
+        pesoBolo   : $("select[name=gourmet]").val(),
         TPItem     : $("input[name=tpitem]").val(),
         DSMensagem : $("textarea[name=mensagem]").val(),
         VLttl      : trataValor($("#prTotal").text(),1).trim()
