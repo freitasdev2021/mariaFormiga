@@ -25,7 +25,7 @@ if(isset($_SESSION['pedido'])){
     // echo "</pre>";
     $boloPreco = 0;
     for($i=0;$i<count($_SESSION['pedido']['bolo']);$i++){
-        $boloPreco += $_SESSION['pedido']['bolo'][$i]['preco'];
+        $boloPreco += str_replace("Esse Pedido: ",'', $_SESSION['pedido']['bolo'][$i]['preco']);
     }
     if(isset($_SESSION['dadosPedido']['DSMensagem'])){
         $_SESSION['pedido']['bolo'][count($_SESSION['pedido']['bolo'])-1]['DSMensagem'] = $_SESSION['dadosPedido']['DSMensagem'];
@@ -207,15 +207,25 @@ if($_SESSION['step'] == 1){
     </div>
     <?php
     }elseif($_SESSION['dadosPedido']['TPBase'] == "DOC"){
-        // echo "<pre>";
-        // print_r($doces);
-        // echo "</pre>";
+        $quantidadeSabores = count($_SESSION['dadosPedido']['bolo']['doces']);
     ?>
     <div class="breadCrumbs">
         <div class="col-sm-12">
             <input type="hidden" name="tpdoce" value="<?=$_SESSION['dadosPedido']['bolo']['tpdoce']?>">
             <select name="gourmet" data-un="<?=$_SESSION['dadosPedido']['VLBase']?>">
                 <option value="">Quantidade</option>
+                <?php
+                    if($quantidadeSabores < 4){
+                ?>
+                <option value="50">50</option>
+                <option value="100">100</option>
+                <?php
+                    }elseif($quantidadeSabores < 3){
+                ?>
+                <option value="50">50</option>
+                <?php
+                    }else{
+                ?>
                 <option value="50">50</option>
                 <option value="100">100</option>
                 <option value="150">150</option>
@@ -226,6 +236,9 @@ if($_SESSION['step'] == 1){
                 <option value="400">400</option>
                 <option value="450">450</option>
                 <option value="500">500</option>
+                <?php
+                    }
+                ?>
             </select>
         </div>
     </div>

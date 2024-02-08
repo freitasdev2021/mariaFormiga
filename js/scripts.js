@@ -302,7 +302,6 @@ function validaCampos(form){
 $(".otherModal").on("hide.bs.modal",function(){
     if(!$(this).hasClass("alerta")){
         $("input[type=text],input[type=email],input[type=name],input[type=password],input[type=hidden]",this).val("")
-        $("select").val("")
         $("input",this).css("border-color","")
         $("label").removeClass("text-danger")
         $("input").parents().find(".error-input").hide()

@@ -4,7 +4,7 @@ jQuery(function(){
     $(document).ready(function(){
        montaBotoes();
        $(".modal").on("hide.bs.modal",function(){
-        $("input",this).val("")
+        $("input[type=text]",this).val("")
         $("img",this).attr("src","")
        })
        getPedidosCalendario()
@@ -131,11 +131,21 @@ jQuery(function(){
                     <br>\
                     <label> Horário: <b>"+horario+"</b></label>\
                     </div>")
+                    console.log(arrPedidos)
                     $.each(arrPedidos,function(b,o){
-                        divPedido.append("<b style='font-size:1.5em;'>Pedido: &nbsp;</b>"+"<p>"+o.nome+"</p>")
-                        divPedido.append("<b>Quantidade: &nbsp;</b>"+"<p>"+o.peso+"</p>")
-                        divPedido.append("<b>Massa: &nbsp;</b>"+"<p>"+o.massa+"</p>")
-                        divPedido.append("<b>Recheio: &nbsp;</b>"+"<p>"+o.recheio+"</p>")
+                        var doccs = []
+                        if(o.tipo == "DOC"){
+                            $.each(o.doces,function(d,c){
+                                doccs.push(c.NMBolo)
+                            })
+                            divPedido.append("<b style='font-size:1.5em;'>Pedido: &nbsp;</b>"+"<p>"+doccs.join(',')+"</p>")
+                            divPedido.append("<b>Quantidade: &nbsp;</b>"+"<p>"+o.peso+"</p>")
+                        }else{
+                            divPedido.append("<b style='font-size:1.5em;'>Pedido: &nbsp;</b>"+"<p>"+o.nome+"</p>")
+                            divPedido.append("<b>Quantidade: &nbsp;</b>"+"<p>"+o.peso+"</p>")
+                            divPedido.append("<b>Massa: &nbsp;</b>"+"<p>"+o.massa+"</p>")
+                            divPedido.append("<b>Recheio: &nbsp;</b>"+"<p>"+o.recheio+"</p>")
+                        }
                     })
                     divPedido.append("<hr width='300px'>")
 

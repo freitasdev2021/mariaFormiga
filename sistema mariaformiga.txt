@@ -10,7 +10,7 @@ Tampa MDF: 20 Reais (ao devolver a pessoa pega de volta o valor)
 Topo de Bolo: Orçamento do topo sera enviado poelo whatsaap 
 serviço terceirizado confirmado apos realização de entrada do pedido
 na base colocar alerta escolher base 2 ou 3 
-colocar valor aproximado na exibiçao para a produção
+colocar Valor na exibiçao para a produção
 ao clicar na data do dia aparecer um link para pedidos a pronta entrega
 abaixo da tabela 6 podemos colocar enviar bolo personalizado
 no bolo personalizado o cliente irá enviar a foto e ao enviar a foto abrirá um alerta avisando

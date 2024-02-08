@@ -44,7 +44,7 @@
                   <strong style="font-size:1.5em;"><?=$_SESSION['pedido']['bolo'][$i]['nome']?></strong>
               </div>
               <div>
-                  <b>Valor:</b> <?=MRFormiga::trataValor($_SESSION['pedido']['bolo'][$i]['preco'],0)?>
+                  <b>Valor:</b> <?=MRFormiga::trataValor(str_replace("Esse Pedido: ",'', $_SESSION['pedido']['bolo'][$i]['preco']),0)?>
               </div>
               <div>
                   <b>Recheio:</b> <?=$_SESSION['pedido']['bolo'][$i]['recheio']?>
@@ -101,7 +101,7 @@
           }
           $boloPrecoModal = 0;
           for($i=0;$i<count($_SESSION['pedido']['bolo']);$i++){
-              $boloPrecoModal += $_SESSION['pedido']['bolo'][$i]['preco'];
+              $boloPrecoModal += str_replace("Esse Pedido: ",'', $_SESSION['pedido']['bolo'][$i]['preco']);
           }
           ?>
           <hr>
