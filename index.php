@@ -121,7 +121,7 @@ include"includes/header.php";
                                             $dadosPedido[] = array(
                                                 "Nome" => $pd['nome'],
                                                 "Quantidade" => $pd['peso'],
-                                                "Valor" => MRFormiga::trataValor($pd['preco'],0)
+                                                "Valor" => str_replace("Esse Pedido: ","",$pd['preco'])
                                             );
                                         ?>
                                         <div class="carrinho">
