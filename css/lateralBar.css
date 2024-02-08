@@ -88,7 +88,8 @@
 .pedidoTotal{
     width:100%;
     display:flex;
-    justify-content:space-between;
+    float:right;
+    flex-direction:column;
     padding:20px;
 }
 
@@ -107,12 +108,13 @@
     display:flex;
     flex-direction:row;
     align-items:center;
+    flex-wrap:wrap;
 }
 
 .footerDoce{
     width:100%;
-    margin-top:150px;
-    margin-left:10px;
+    margin-top:500px;
+    margin-left:50px;
     position:absolute;
 }
 
@@ -120,7 +122,9 @@
     display:flex;
     flex-direction:column;
     text-align:center;
-    height:500px;
+    height:400px;
+    width:250px;
+    margin:10px;
 }
 
 .prod-pedido img{

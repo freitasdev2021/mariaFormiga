@@ -112,33 +112,37 @@ include"includes/header.php";
                                 <div class="card-body conteudo-principal conteudo-pedido">
                                     <?php
                                     if($pedido){
+                                        $dadosPedido = array();
                                     foreach($pedido as $pd){
                                     ?>
                                     <div class="prod-pedido">
                                         <?php
                                         if($pd['tipo'] == 'BOL' || $pd['tipo'] == "TOR"){
+                                            $dadosPedido[] = array(
+                                                "Nome" => $pd['nome'],
+                                                "Quantidade" => $pd['peso'],
+                                                "Valor" => MRFormiga::trataValor($pd['preco'],0)
+                                            );
                                         ?>
                                         <div class="carrinho">
                                             <img src="<?=$pd['fotoBolo']?>">
                                             <strong><?=$pd['nome']?></strong>
-                                            <strong>Quantidade: <?=$pd['peso']?></strong>
-                                            <strong><?="Valor: ".MRFormiga::trataValor($pd['preco'],0)?></strong>
+                                            <br>
                                             <?php
-                                            if(!empty($pd['NMRecheio'])){
-                                            ?>
-                                            <strong>Recheio: <?=$pd['NMRecheio']?></strong>
-                                            <?php
+                                            if(!empty($pd['recheio'])){
+                                                echo "<strong>".$pd['recheio']."</strong>";
                                             }
                                             if(isset($pd['embalagem'])){
-                                            $embalagem = $pd['embalagem'];
-                                            ?>
-                                            <strong>Embalagem: <?=$embalagem['nome']?></strong>
-                                            
-                                        <?php
+                                                echo "<br>";
+                                                echo "<strong>".$pd['embalagem']['nome']."</strong>";
                                             }
-                                            echo "</div>";
+                                            ?>  
+                                        </div>                              
+                                        <?php
                                         }elseif($pd['tipo'] == 'DOC'){
+                                            $saboresDoces = array();
                                             for($i=0;$i<count($pd['doces']);$i++){
+                                                array_push($saboresDoces,$pd['doces'][$i]['NMBolo']);
                                         ?>
                                         <div class="carrinho">
                                             <img src='<?=$pd['doces'][$i]['IMGBolo']?>'>
@@ -146,11 +150,11 @@ include"includes/header.php";
                                         </div>
                                         <?php
                                             }
-                                            echo "<div class='footerDoce'>";
-                                                echo "<strong> Valor: ".MRFormiga::trataValor($pd['preco'],0)."</strong>";
-                                                echo "<br>";
-                                                echo "<strong> Quantidade: ".$pd['peso']."</strong>";
-                                            echo "</div>";
+                                            $dadosPedido[] = array(
+                                                "Nome" => implode(",",$saboresDoces),
+                                                "Quantidade" => $pd['peso'],
+                                                "Valor" => MRFormiga::trataValor($pd['preco'],0)
+                                            );
                                         }
                                         ?>
                                     </div>
@@ -175,10 +179,24 @@ include"includes/header.php";
                                             }
                                         }
                                     }
+                                    // echo "<pre>";
+                                    // print_r($dadosPedido);
+                                    // echo "</pre>";
                                 }
                                     ?>
                                 </div>
+                                <br>
+                                <hr>
                                 <div class="pedidoTotal">
+                                    <ul>
+                                    <?php
+                                    foreach($dadosPedido as $dp){
+                                    ?>
+                                        <li><?=$dp['Nome']." | Quantidade: ".$dp['Quantidade']." | (R$ ".$dp['Valor'].")";?></li>
+                                    <?php
+                                    }
+                                    ?>
+                                    </ul>
                                     <div>
                                         <strong><?="Valor: ".MRFormiga::trataValor($p['VLPedido'],0)?></strong>
                                     </div>
